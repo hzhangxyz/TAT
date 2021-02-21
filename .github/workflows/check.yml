@@ -27,6 +27,9 @@ jobs:
     - name: make
       working-directory: ${{runner.workspace}}/build
       run: cmake --build . --parallel 4
+    - name: prepare python
+      working-directory: ${{runner.workspace}}/build
+      run: python --version && pwd && ls
     - name: test python
       working-directory: ${{runner.workspace}}/build
       run: python ${{github.workspace}}/test/simple_test.py
